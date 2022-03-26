@@ -3,8 +3,9 @@
 
   <section class="wrapper">
   
+  <br>
   <h3>Sistema de Pedidos</h3>
-
+  <br>
   <img src="assets/imgs/loginimage.png" alt="imagelogin" >
 
   <h4>Faça o login para acessar o aplicativo:</h4>
@@ -12,16 +13,16 @@
 
     <form>
      <div>
-      <input placeholder="Digite seu email" name="email" type="text" autocomplete="off" /> 
-     </div>
+        <label >Email</label>
+        <input placeholder="Digite seu email" name="email" type="text" autocomplete="off" /> 
+    </div>
     <br>
-     <div>
-        <input placeholder="Digite sua senha" name="senha" type="password" autocomplete="off"/> 
-     </div>
+    <div>
+      <label >Senha</label>
+      <input placeholder="Digite sua senha" name="password" type="password" autocomplete="off"/> 
+    </div>
      
-     <br>
-
-     <div class="btn">
+     <div class="btn" (click)="login()">
       Entrar
      </div>
        

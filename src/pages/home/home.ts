@@ -13,4 +13,11 @@ export class HomePage {
 
   }
 
+
+  login(){
+      this.navCtrl.setRoot('CategoriesPage');
+
+  }
+
+
 }

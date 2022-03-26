@@ -1,6 +1,6 @@
 page-home {
 
-    ion-content{
+      ion-content{
         background-color: rgba(5, 4, 4, 0.877)!important;
 
       }
@@ -14,14 +14,16 @@ page-home {
       h3 {
         text-align: center;
         color: rgb(233, 236, 240);
-        margin-bottom: 10px;
+        margin-bottom: 40px;
+        font-size: 2.8rem;
+
       }
     
       label {
-        color: rgb(167, 171, 172);
-        font-size: 1.8rem;
+        color: rgb(233, 236, 240);
+        font-size: 1.9rem;
         text-align:center;
-        font-weight: 500;
+        font-weight: 700;
         width: 100%;
     }
     

@@ -1,0 +1,17 @@
+page-categories {
+
+    ion-content{
+        background-color: rgba(5, 4, 4, 0.712)!important;
+      }
+
+    .toolbar-background{
+        background-color: black;
+    }
+
+    ion-menu{
+        ion-content{
+            --ion-background-color:black
+        }
+  }
+
+}
