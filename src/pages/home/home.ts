@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { CredentialsDTO } from '../../models/credentials.dto';
+import { AuthService } from '../../services/domain/auth.service';
 
 @IonicPage()
 @Component({
@@ -16,7 +17,10 @@ export class HomePage {
     password: ""
   };
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
+  constructor(public navCtrl: NavController,
+              public menu: MenuController,
+              public auth: AuthService
+     ) {
   }
   
   ionViewWillEnter(){
@@ -28,10 +32,12 @@ export class HomePage {
   }
 
   login(){
-      console.log(this.creds);
-      this.navCtrl.setRoot('CategoriesPage');
+      this.auth.authenticate(this.creds)
+      .subscribe(response => {
+          console.log(response.headers.get('Authorization'));
+          this.navCtrl.setRoot('CategoriesPage');
+      },
+      error => {});  
 
   }
-
-
 }
