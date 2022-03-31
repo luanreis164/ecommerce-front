@@ -14,12 +14,12 @@
     <form>
      <div>
         <label >Email</label>
-        <input placeholder="Digite seu email" name="email" type="text" autocomplete="off" /> 
+        <input [(ngModel)]="creds.email" placeholder="Digite seu email" name="email" type="text" autocomplete="off"  /> 
     </div>
     <br>
     <div>
       <label >Senha</label>
-      <input placeholder="Digite sua senha" name="password" type="password" autocomplete="off"/> 
+      <input [(ngModel)]="creds.password" placeholder="Digite sua senha" name="password" type="password" autocomplete="off"/> 
     </div>
      
      <div class="btn" (click)="login()">
