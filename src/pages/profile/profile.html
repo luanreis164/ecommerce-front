@@ -4,15 +4,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Meu perfil:</ion-title>
+    <ion-title>Meu perfil</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-avatar>
-      <img class="circle" [src]="customer?.imageUrl || 'assets/imgs/blank.png'">
-  </ion-avatar>
-  <h2 text-center>{{customer?.name}}</h2>
-  <p color-light text-center>{{customer?.email}}</p>
+
+<ion-card class="card">
+  <img class="circle" [src]="customer?.imageUrl || 'assets/imgs/blank.png'">
+<ion-card-content>
+<ion-card-title align="center">
+  {{customer?.name}}
+</ion-card-title >
+<h2 align="center">
+{{customer?.email}}
+</h2>
+</ion-card-content>
+</ion-card>
 
 </ion-content>
+

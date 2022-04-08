@@ -14,8 +14,8 @@
       <ion-thumbnail item-start>
         <img [src]="item.product.imageUrl || 'assets/imgs/prod.jpg'">
       </ion-thumbnail>
-      <h2> {{ item.product.name }} </h2>
-      <h3> R{{item.product.price | currency}} </h3>
+      <h2> {{ item.product.name }}  </h2>
+      <h3> - R{{item.product.price | currency}} </h3>
       <ion-icon class="nolinebreak" name="remove-circle" color="primary" (click)="decreaseQuantity(item.product)"></ion-icon>
       <h3 class="nolinebreak"> {{item.amount }} </h3>
       <ion-icon name="add-circle" color="primary" (click)="increaseQuantity(item.product)"></ion-icon>

@@ -13,10 +13,10 @@
     <button navPush="CartPage" ion-fab><ion-icon name="cart"></ion-icon></button>
   </ion-fab>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="showProducts(item.id)"> 
+    <button ion-item *ngFor="let item of items" (click)="showProducts(item.id)" > 
 
       <ion-thumbnail item-start>
-        <img src="{{bucketBaseUrl}}/cat{{item.id}}.jpg">
+        <img src="{{bucketBaseUrl}}/cat{{item.id}}.jpg" class="circle">
       </ion-thumbnail>
 
       <ion-label>{{ item.name }}</ion-label>

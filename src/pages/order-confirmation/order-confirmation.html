@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >Confira seu pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <ion-card>
+      <ion-card-header color="dark">
+        Itens do pedido
+      </ion-card-header>
+      
+      <ion-list>
+        <ion-item *ngFor="let item of cartItems">
+          <ion-thumbnail item-start>
+            <img [src]="item.product.imageUrl || 'assets/imgs/prod.jpg'">
+          </ion-thumbnail>
+          <h2>{{item.product.name}}</h2>
+          <p>R{{item.product.price | currency}}</p>
+          <p class="nolinebreak">Qntd: {{item.amount}}</p>
+          <p item-end>R{{item.product.price * item.amount | currency}}</p>
+        </ion-item> 
+
+        <ion-item>
+          <h2>Total</h2>
+          <h2 item-end>R{{total() | currency}}</h2>
+        </ion-item>
+      </ion-list> 
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+          Cliente
+        </ion-card-header>
+        <ion-item>
+          <h2>{{customer?.name}} - {{customer?.email}}</h2>
+          
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Endereço de entrega
+      </ion-card-header>
+    
+      <ion-item>
+        <h2>{{adress?.address}}, {{adress?.number}}</h2>
+        <p>{{adress?.complement}}  {{adress?.neighborhood}} - CEP: {{adress?.postalCode}}</p>
+        <p>{{adress?.city.name}}, {{adress?.city.estate.name}}</p>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Pagamento
+      </ion-card-header>
+    
+      <ion-item *ngIf="order.payment['@type']=='pagamentoComCartao'">
+        <h3>Pagamento com cartão - número de parcelas: {{order.payment.numberInstallments}} </h3>
+      </ion-item>
+      <ion-item *ngIf="order.payment['@type']=='pagamentoComBoleto'">
+        <h3>Pagamento com boleto</h3>
+      </ion-item>
+    </ion-card>
+
+    <button ion-button block>Confirmar pedido</button>
+    <button ion-button block outline>Voltar</button>
+  </div>
+
+
+</ion-content>

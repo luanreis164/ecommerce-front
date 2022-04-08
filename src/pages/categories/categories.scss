@@ -14,4 +14,23 @@ page-categories {
         }
   }
 
+  ion-list{
+      background-color: rgba(128, 128, 128, 0.404);
+  }
+
+
+
+    .circle{
+        border-radius: 20%;
+    }
+
+
+    .item{
+        color: rgb(224, 220, 220);
+        border-radius:35px;
+        height: 88px;
+     
+        margin:8px auto;
+    }
+
 }
