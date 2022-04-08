@@ -68,8 +68,8 @@
       </ion-item>
     </ion-card>
 
-    <button ion-button block>Confirmar pedido</button>
-    <button ion-button block outline>Voltar</button>
+    <button ion-button block (click)="checkout()">Confirmar pedido</button>
+    <button ion-button block color="danger" (click)="back()">Cancelar</button>
   </div>
 
 

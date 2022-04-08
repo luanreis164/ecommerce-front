@@ -45,4 +45,7 @@ export class ProductDetailPage {
     this.navCtrl.setRoot('CartPage');
   }
 
+
+  
+
 }

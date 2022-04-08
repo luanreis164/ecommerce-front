@@ -1,3 +1,4 @@
+import { OrderService } from './../../services/domain/order.service';
 import { CustomerService } from './../../services/domain/customer.service';
 import { AdressDTO } from './../../models/adress.dto';
 import { CustomerDTO } from './../../models/customer.dto';
@@ -23,6 +24,7 @@ export class OrderConfirmationPage {
               public navParams: NavParams,
               public cartService : CartService,
               public customerService : CustomerService,
+              public orderService : OrderService,
      ) {
     
     this.order = this.navParams.get('order')
@@ -51,6 +53,24 @@ export class OrderConfirmationPage {
 
   total(){
     return this.cartService.total();
+  }
+  
+  back(){
+    this.navCtrl.setRoot('CartPage');
+  }
+
+  checkout(){
+    this.orderService.insert(this.order)
+    .subscribe(response => {
+      this.cartService.createOrClearCart();
+      console.log(response.headers.get('location'));
+    },
+    error => {
+      if(error.status == 403){
+        this.navCtrl.setRoot('HomePage');
+      }
+
+    })
   }
 
 }

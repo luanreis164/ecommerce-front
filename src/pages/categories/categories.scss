@@ -5,7 +5,7 @@ page-categories {
       }
 
     .toolbar-background{
-        background-color: black;
+        background-color: rgb(94, 94, 94);
     }
 
     ion-menu{
@@ -14,9 +14,6 @@ page-categories {
         }
   }
 
-  ion-list{
-      background-color: rgba(128, 128, 128, 0.404);
-  }
 
 
 
@@ -25,12 +22,15 @@ page-categories {
     }
 
 
-    .item{
+    .list .item{
         color: rgb(224, 220, 220);
         border-radius:35px;
         height: 88px;
-     
         margin:8px auto;
+        border-color: #050505;
     }
 
+    .list{
+        margin-top:0%;  
+    }
 }
