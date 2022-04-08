@@ -3,13 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title >Confira seu pedido</ion-title>
+    <ion-title *ngIf="codorder" >Confira seu pedido</ion-title>
+    <ion-title *ngIf="!codorder" >Pedido registrado!</ion-title>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <div>
+  <div *ngIf="!codorder">
     <ion-card>
       <ion-card-header color="dark">
         Itens do pedido
@@ -69,8 +71,21 @@
     </ion-card>
 
     <button ion-button block (click)="checkout()">Confirmar pedido</button>
-    <button ion-button block color="danger" (click)="back()">Cancelar</button>
+    <button ion-button block color="danger" (click)="back()">Voltar para o carrinho</button>
   </div>
 
+  <div *ngIf="codorder">
+    <ion-card>
+        <ion-card-header>
+          Seu pedido foi registrado!
+        </ion-card-header>
+        <ion-item>
+          <h2>Código do pedido: {{codorder}}</h2>
+          <p>Verifique seu email</p>
+        </ion-item>
+    </ion-card>
+    <button ion-button block color="primary" (click)="home()">Voltar</button>
+
+  </div>
 
 </ion-content>
