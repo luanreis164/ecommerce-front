@@ -1,7 +1,7 @@
 import { ProductService } from './../../services/domain/product.service';
 import { ProductDTO } from './../../models/product.dto';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { API_CONFIG } from '../../config/api.config';
 
 
@@ -16,18 +16,23 @@ export class ProductsPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public productService: ProductService
+              public productService: ProductService,
+              public loadController: LoadingController,
               ) {
   }
 
   ionViewDidLoad() {
     let categorie_id = this.navParams.get('categorie_id');
+    let loader = this.presentLoading();
     this.productService.findByCategorie(categorie_id)
     .subscribe(response => {
       this.items = response['content'];
+      loader.dismiss();
       this.loadImageUrl();
     },
-    error => {});
+    error => {
+      loader.dismiss();
+    });
   }
 
   loadImageUrl(){
@@ -45,7 +50,13 @@ export class ProductsPage {
     this.navCtrl.push('ProductDetailPage',{product_id : product_id});
   }
 
-
+  presentLoading(){
+      let loader = this.loadController.create({
+        content:"Aguarde..."
+      });
+      loader.present();
+      return loader;
+  }
 
 
 }
