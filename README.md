@@ -45,11 +45,7 @@ Neste projeto, foi desenvolvidos e abordados os seguintes tópicos:
 [MIT](https://choosealicense.com/licenses/mit/)
 
 
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢
-* Convide alguém da equipe para uma cerveja 🍺 
-* Obrigado 🤓.
+## 🎁  Obrigado .
 
 
 ---
