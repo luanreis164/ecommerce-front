@@ -1,3 +1,4 @@
+import { ImageUtilService } from './../image-util.service';
 import { StorageService } from './../storage.service';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -10,7 +11,10 @@ import { CustomerDTO } from "../../models/customer.dto";
 export class CustomerService{
 
 
-    constructor(public http:HttpClient , public storage : StorageService){
+    constructor( public http:HttpClient,
+                 public storage : StorageService,
+                 public ImageUtilService : ImageUtilService,
+    ){
     }
 
     findById(id : string){
@@ -37,5 +41,19 @@ export class CustomerService{
         );
     }
 
+    uploadPicture(picture) {
+        let pictureBlob = this.ImageUtilService.dataUriToBlob(picture);
+        let formData : FormData = new FormData();
+        formData.append('file',pictureBlob,'file.png');
+
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/customers/picture`,
+            formData,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
 
 }

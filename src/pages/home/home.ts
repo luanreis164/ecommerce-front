@@ -12,6 +12,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HomePage {
 
+  isTextFieldType: boolean;
+
   creds : CredentialsDTO = {
     email: "",
     password: ""
