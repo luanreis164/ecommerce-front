@@ -1,7 +1,7 @@
 
 # Desenvolvendo o frontend da API criada no repositorio [Ecommerceproj](https://github.com/luanreis164/ecommerceproj)
 
-## Overview da API -
+## Overview do Projeto -
 
  <p align="center">
   <img src="src/assets/imgs/overview.gif">
